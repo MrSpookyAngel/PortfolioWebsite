@@ -1,15 +1,20 @@
 import { Document, Page, pdfjs } from "react-pdf";
 import { Container } from "@mui/material";
 
-import pdf from "./Resume.pdf";
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`;
 
 function Resume() {
   return (
-    <Container sx={{ display: "flex", justifyContent: "center" }}>
-      <Document file={pdf}>
-        <Page renderTextLayer={false} pageNumber={1} scale={1.5} />
+    <Container
+      sx={{ display: "flex", justifyContent: "center", padding: "2rem" }}
+    >
+      <Document file="Resume.pdf" loading="Loading resume...">
+        <Page
+          pageNumber={1}
+          width={window.innerWidth * 0.4}
+          renderTextLayer={false}
+          renderAnnotationLayer={false}
+        />
       </Document>
     </Container>
   );

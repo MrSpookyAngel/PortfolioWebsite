@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 import { Box } from "@mui/material";
 
-function StarBackground({ children }: { children: React.ReactElement }) {
+function StarBackground({ children }: { children: React.ReactElement[] }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {

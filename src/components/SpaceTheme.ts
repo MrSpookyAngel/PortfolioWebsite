@@ -27,7 +27,7 @@ const SpaceTheme = createTheme({
   palette: {
     mode: "dark",
     primary: { main: "#c770f0" }, // purple
-    secondary: { main: "#f2f5f7" }, // light blue
+    secondary: { main: "#5f5f5f" }, // white, very slight blue
     special: {
       name: "#e11d48", // red
       county: "#fb923c", // orange

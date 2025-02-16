@@ -4,7 +4,6 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import { Container } from "@mui/material";
 import About from "./components/About/About";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar";
@@ -23,7 +22,6 @@ function App() {
         <CssBaseline />
         <Router>
           <Navbar />
-          <Container>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
@@ -31,7 +29,6 @@ function App() {
               <Route path="/resume" element={<Resume />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
-          </Container>
         </Router>
       </StarBackground>
     </ThemeProvider>

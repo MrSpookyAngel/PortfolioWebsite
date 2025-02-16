@@ -35,14 +35,14 @@ function Navbar() {
   const toggleDrawer = (open: boolean) => () => setDrawerOpen(open);
 
   const navLinks = [
-    { label: "Home", icon: <Home />, path: "/" },
-    { label: "About", icon: <InfoIcon />, path: "/about" },
-    { label: "Projects", icon: <BuildIcon />, path: "/projects" },
-    { label: "Resume", icon: <DescriptionIcon />, path: "/resume" },
+    { label: "Home", icon: <Home />, href: "/" },
+    { label: "About", icon: <InfoIcon />, href: "/about" },
+    { label: "Projects", icon: <BuildIcon />, href: "/projects" },
+    { label: "Resume", icon: <DescriptionIcon />, href: "/resume" },
     {
       label: "GitHub",
       icon: <GitHubIcon />,
-      path: "https://github.com/MrSpookyAngel",
+      href: "https://github.com/MrSpookyAngel",
     },
   ];
 
@@ -58,7 +58,7 @@ function Navbar() {
           marginX: "auto",
           borderRadius: "3.125rem",
           outlineColor: "gray",
-          outlineWidth: "0.1rem",
+          outlineWidth: "0.2rem",
           outlineStyle: "solid",
         }}
       >
@@ -73,7 +73,7 @@ function Navbar() {
           >
             {/* First icon / text */}
             <Link aria-label="Home" to="/">
-              <img src="v-universe.png" style={{ height: "3.5rem" }} />
+              <img src="v-universe.png" alt="v-universe logo" style={{ height: "3.5rem" }} />
             </Link>
 
             {/* Desktop */}
@@ -87,7 +87,7 @@ function Navbar() {
               >
                 <Tabs
                   value={navLinks.findIndex(
-                    (link) => link.path === location.pathname
+                    (link) => link.href === location.pathname
                   )}
                   sx={{
                     "& .MuiTab-root": {
@@ -98,6 +98,7 @@ function Navbar() {
                       color: theme.palette.primary.main,
                       "&:hover": {
                         color: theme.palette.text.primary,
+                        // adds a line below the text
                         "&::after": {
                           content: '""',
                           position: "absolute",
@@ -123,15 +124,22 @@ function Navbar() {
                   }}
                 >
                   {/* Navigation links */}
-                  {navLinks.map((link) => (
-                    <Tab
-                      key={link.label}
-                      component={Link}
-                      to={link.path}
-                      icon={link.icon}
-                      label={link.label}
-                    />
-                  ))}
+                  {navLinks.map((link) => {
+                    const isExternalLink =
+                      link.href.startsWith("https://") ||
+                      link.href.startsWith("http://");
+                    return (
+                      <Tab
+                        key={link.label}
+                        component={Link}
+                        to={link.href}
+                        icon={link.icon}
+                        label={link.label}
+                        target={isExternalLink ? "_blank" : undefined}
+                        rel="noopener noreferrer"
+                      />
+                    );
+                  })}
                 </Tabs>
               </Box>
             )}
@@ -168,22 +176,29 @@ function Navbar() {
               }}
             >
               {/* Navigation links */}
-              {navLinks.map((link) => (
-                <ListItem
-                  key={link.label}
-                  component={Link}
-                  to={link.path}
-                  onClick={toggleDrawer(false)}
-                >
-                  <ListItemIcon sx={{ color: theme.palette.text.primary }}>
-                    {link.icon}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={link.label}
-                    sx={{ color: theme.palette.text.primary }}
-                  />
-                </ListItem>
-              ))}
+              {navLinks.map((link) => {
+                const isExternalLink =
+                  link.href.startsWith("https://") ||
+                  link.href.startsWith("http://");
+                return (
+                  <ListItem
+                    key={link.label}
+                    component={Link}
+                    to={link.href}
+                    onClick={toggleDrawer(false)}
+                    target={isExternalLink ? "_blank" : undefined}
+                    rel="noopener noreferrer"
+                  >
+                    <ListItemIcon sx={{ color: theme.palette.text.primary }}>
+                      {link.icon}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={link.label}
+                      sx={{ color: theme.palette.text.primary }}
+                    />
+                  </ListItem>
+                );
+              })}
             </List>
           </Drawer>
         )}

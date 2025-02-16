@@ -10,13 +10,19 @@ function SectionCards({ title, icons }: SectionCardsProps) {
   const theme = useTheme();
 
   return (
-    <Box component="section" py={8} px={{ xs: 2, md: 8 }}>
-      <Typography variant="h4" component="h2" textAlign="center" mb={6}>
+    <Box component="section" py="2rem">
+      <Typography
+        variant="h3"
+        textAlign="center"
+        fontWeight="bold"
+        color="primary"
+        mb={6}
+      >
         {title}
       </Typography>
       <Grid container spacing={{ xs: 4, md: 8 }} justifyContent="center">
         {icons.map(({ Icon, label }) => (
-          <Grid key={label} spacing={{ xs: 6, md: 3 }}>
+          <Grid key={label}>
             <Box
               aria-label={label}
               role="img"
@@ -37,10 +43,11 @@ function SectionCards({ title, icons }: SectionCardsProps) {
                 },
               }}
             >
-              <Icon size={80} color={theme.palette.primary.main} />
+              <Icon size="5rem" color={theme.palette.primary.main} />
               <Typography
                 variant="subtitle1"
-                mt={2}
+                component="div"
+                mt="1rem"
                 color="text.secondary"
                 fontWeight="medium"
               >

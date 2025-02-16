@@ -10,12 +10,11 @@ function About() {
       component="main"
       aria-label="About section"
       id="about"
-      spacing={4}
+      spacing="2rem"
       sx={{
-        px: { xs: 2, md: 4 },
-        py: 8,
         alignItems: "center",
-        textAlign: { xs: "left", md: "center" },
+        textAlign: "center",
+        paddingX: { xs: "0.2rem"},
       }}
     >
       <Me />
