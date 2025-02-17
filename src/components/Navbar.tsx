@@ -73,7 +73,11 @@ function Navbar() {
           >
             {/* First icon / text */}
             <Link aria-label="Home" to="/">
-              <img src="v-universe.png" alt="v-universe logo" style={{ height: "3.5rem" }} />
+              <img
+                src="v-universe.png"
+                alt="v-universe logo"
+                style={{ height: "3.5rem" }}
+              />
             </Link>
 
             {/* Desktop */}
@@ -137,6 +141,7 @@ function Navbar() {
                         label={link.label}
                         target={isExternalLink ? "_blank" : undefined}
                         rel="noopener noreferrer"
+                        tabIndex={0}
                       />
                     );
                   })}

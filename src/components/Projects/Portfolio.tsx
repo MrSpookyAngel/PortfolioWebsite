@@ -2,11 +2,11 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 
 import ProjectCard from "./ProjectCard";
 
-export default function LightPoverty() {
-  const title = "Electricity and Settlement Detection in Sub-Saharan Africa";
+export default function Portfolio() {
+  const title = "Portfolio";
   const description =
-    "This is a test project. It is used to test the project card component. It is not a real project. It is just a test.";
-  const image = "v-universe.png";
+    "My portfolio website built with React, Vite, TypeScript, and Material-UI. It includes animations powered by Framer Motion and a PDF viewer by React-PDF.";
+  const image = "Portfolio.png";
   const links = [
     {
       key: "github",

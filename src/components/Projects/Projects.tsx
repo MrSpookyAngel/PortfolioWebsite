@@ -1,14 +1,12 @@
 import { Grid2 as Grid, Stack, Typography } from "@mui/material";
 
-import TestProject from "./TestProject";
-import TestProject2 from "./TestProject2";
-import LightPoverty from "./LightPoverty";
+import Portfolio from "./Portfolio";
+import LightSettlementDetection from "./LightSettlementDetection";
 
 function Projects() {
   const projects = [
-    TestProject,
-    TestProject2,
-    LightPoverty
+    Portfolio,
+    LightSettlementDetection,
   ];
 
   return (

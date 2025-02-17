@@ -43,9 +43,10 @@ export default function ProjectCard({
       {image && (
         <CardMedia
           component="img"
-          height="140"
+          height="200px"
           image={image}
           alt={title + " showcase"}
+          sx={{ objectFit: "fill" }}
         />
       )}
       <CardContent>

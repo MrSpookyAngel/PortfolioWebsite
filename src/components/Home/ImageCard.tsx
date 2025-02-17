@@ -4,7 +4,7 @@ function ImageCard() {
   return (
     <Box
       component="img"
-      src="v-universe.png"
+      src="Me.png"
       alt="Luis Angel Villanueva"
       mx={"auto"}
       sx={{
