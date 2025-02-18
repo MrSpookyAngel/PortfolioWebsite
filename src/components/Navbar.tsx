@@ -18,10 +18,11 @@ import {
   useTheme,
 } from "@mui/material";
 
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import BuildIcon from "@mui/icons-material/Build";
 import DescriptionIcon from "@mui/icons-material/Description";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import Home from "@mui/icons-material/Home";
+import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -32,13 +33,19 @@ function Navbar() {
   const location = useLocation();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const toggleDrawer = (open: boolean) => () => setDrawerOpen(open);
+
+  function toggleDrawer(open: boolean) {
+    return function () {
+      setDrawerOpen(open);
+    };
+  }
 
   const navLinks = [
-    { label: "Home", icon: <Home />, href: "/" },
+    { label: "Home", icon: <HomeIcon />, href: "/" },
     { label: "About", icon: <InfoIcon />, href: "/about" },
     { label: "Projects", icon: <BuildIcon />, href: "/projects" },
     { label: "Resume", icon: <DescriptionIcon />, href: "/resume" },
+    { label: "Contact", icon: <AccountBoxIcon />, href: "/contact" },
     {
       label: "GitHub",
       icon: <GitHubIcon />,
@@ -96,19 +103,18 @@ function Navbar() {
                   sx={{
                     "& .MuiTab-root": {
                       textTransform: "none",
-                      fontWeight: 500,
+                      fontWeight: "bold",
                       fontSize: "1rem",
-                      minWidth: 100,
-                      color: theme.palette.primary.main,
+                      color: "primary.main",
                       "&:hover": {
-                        color: theme.palette.text.primary,
+                        color: "text.primary",
                         // adds a line below the text
                         "&::after": {
                           content: '""',
                           position: "absolute",
                           width: "100%",
                           height: "2%",
-                          backgroundColor: theme.palette.text.primary,
+                          backgroundColor: "text.primary",
                           bottom: 0,
                           left: 0,
                           zIndex: 1,
@@ -155,7 +161,7 @@ function Navbar() {
                 edge="end"
                 aria-label="menu"
                 onClick={toggleDrawer(true)}
-                sx={{ color: theme.palette.text.primary }}
+                sx={{ color: "text.primary" }}
               >
                 <MenuIcon />
               </IconButton>
@@ -171,7 +177,7 @@ function Navbar() {
             onClose={toggleDrawer(false)}
             PaperProps={{
               sx: {
-                backgroundColor: theme.palette.background.paper,
+                backgroundColor: "background.paper",
               },
             }}
           >
@@ -194,12 +200,12 @@ function Navbar() {
                     target={isExternalLink ? "_blank" : undefined}
                     rel="noopener noreferrer"
                   >
-                    <ListItemIcon sx={{ color: theme.palette.text.primary }}>
+                    <ListItemIcon sx={{ color: "text.primary" }}>
                       {link.icon}
                     </ListItemIcon>
                     <ListItemText
                       primary={link.label}
-                      sx={{ color: theme.palette.text.primary }}
+                      sx={{ color: "text.primary" }}
                     />
                   </ListItem>
                 );

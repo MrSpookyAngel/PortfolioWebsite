@@ -9,6 +9,7 @@ import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects/Projects";
 import Resume from "./components/Resume/Resume";
+import Contact from "./components/Contact/Contact";
 
 import StarBackground from "./components/StarBackground.tsx";
 import { ThemeProvider } from "@mui/material/styles";
@@ -22,13 +23,14 @@ function App() {
         <CssBaseline />
         <Router>
           <Navbar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/resume" element={<Resume />} />
-              <Route path="*" element={<Navigate to="/" />} />
-            </Routes>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
         </Router>
       </StarBackground>
     </ThemeProvider>
