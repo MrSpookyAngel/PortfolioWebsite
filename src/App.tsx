@@ -11,10 +11,10 @@ import Projects from "./components/Projects/Projects";
 import Resume from "./components/Resume/Resume";
 import Contact from "./components/Contact/Contact";
 
-import StarBackground from "./components/StarBackground.tsx";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import SpaceTheme from "./components/SpaceTheme.ts";
+import StarBackground from "./components/StarBackground";
+import SpaceTheme from "./components/SpaceTheme";
 
 export default function App() {
   return (
