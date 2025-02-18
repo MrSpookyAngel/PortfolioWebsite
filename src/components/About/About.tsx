@@ -4,7 +4,7 @@ import Languages from "./Languages";
 import FrameworksLibraries from "./FrameworksLibraries";
 import Tools from "./Tools";
 
-function About() {
+export default function About() {
   return (
     <Stack
       component="main"
@@ -14,7 +14,7 @@ function About() {
       sx={{
         alignItems: "center",
         textAlign: "center",
-        paddingX: { xs: "0.2rem"},
+        paddingX: { xs: "0.2rem" },
       }}
     >
       <Me />
@@ -24,5 +24,3 @@ function About() {
     </Stack>
   );
 }
-
-export default About;

@@ -2,7 +2,7 @@ import { SiDocker, SiMongodb, SiSqlite, SiGit } from "react-icons/si";
 
 import SectionCards from "./SectionCards";
 
-function Tools() {
+export default function Tools() {
   const title = "Tools & Technologies";
   const icons = [
     { Icon: SiDocker, label: "Docker" },
@@ -13,5 +13,3 @@ function Tools() {
 
   return SectionCards({ title, icons });
 }
-
-export default Tools;

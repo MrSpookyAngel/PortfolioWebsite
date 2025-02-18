@@ -28,7 +28,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 import HideOnScroll from "./HideOnScroll";
 
-function Navbar() {
+export default function Navbar() {
   const theme = useTheme();
   const location = useLocation();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -217,5 +217,3 @@ function Navbar() {
     </HideOnScroll>
   );
 }
-
-export default Navbar;

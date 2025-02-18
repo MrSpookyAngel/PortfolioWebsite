@@ -16,7 +16,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import SpaceTheme from "./components/SpaceTheme.ts";
 
-function App() {
+export default function App() {
   return (
     <ThemeProvider theme={SpaceTheme}>
       <StarBackground>
@@ -36,5 +36,3 @@ function App() {
     </ThemeProvider>
   );
 }
-
-export default App;

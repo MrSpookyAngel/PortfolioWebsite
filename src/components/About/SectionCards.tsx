@@ -6,7 +6,7 @@ interface SectionCardsProps {
   icons: { Icon: IconType; label: string }[];
 }
 
-function SectionCards({ title, icons }: SectionCardsProps) {
+export default function SectionCards({ title, icons }: SectionCardsProps) {
   const theme = useTheme();
 
   return (
@@ -16,11 +16,15 @@ function SectionCards({ title, icons }: SectionCardsProps) {
         textAlign="center"
         fontWeight="bold"
         color="primary"
-        mb={6}
+        mb="2rem"
       >
         {title}
       </Typography>
-      <Grid container spacing={{ xs: 4, md: 8 }} justifyContent="center">
+      <Grid
+        container
+        spacing={{ xs: "2rem", md: "4rem" }}
+        justifyContent="center"
+      >
         {icons.map(({ Icon, label }) => (
           <Grid key={label}>
             <Box
@@ -30,10 +34,10 @@ function SectionCards({ title, icons }: SectionCardsProps) {
               flexDirection="column"
               alignItems="center"
               justifyContent="center"
-              border={2}
+              border="0.1rem solid"
               borderColor="primary.main"
-              borderRadius={2}
-              p={4}
+              borderRadius="1rem"
+              p="2rem"
               sx={{
                 transition: "all 0.3s ease",
                 "&:hover": {
@@ -49,7 +53,7 @@ function SectionCards({ title, icons }: SectionCardsProps) {
                 component="div"
                 mt="1rem"
                 color="text.secondary"
-                fontWeight="medium"
+                fontWeight="bold"
               >
                 {label}
               </Typography>
@@ -60,5 +64,3 @@ function SectionCards({ title, icons }: SectionCardsProps) {
     </Box>
   );
 }
-
-export default SectionCards;

@@ -1,19 +1,19 @@
 import { Box, Button, Stack, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 
-function NameCard() {
+export default function NameCard() {
   const theme = useTheme();
 
   return (
     <Box
       component="section"
-      textAlign={"center"}
-      display={"flex"}
-      flexDirection={"column"}
-      justifyContent={"center"}
-      alignItems={"center"}
+      textAlign="center"
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
       gap="2rem"
-      mx={"auto"}
+      mx="auto"
     >
       <Stack spacing="2rem">
         {/* Text */}
@@ -30,23 +30,13 @@ function NameCard() {
           Hi, I'm Luis Angel Villanueva
         </Typography>
 
-        {/* <Typography
-          variant="h4"
-          gutterBottom
-          color="text.secondary"
-          fontWeight={500}
-        >
-          Full Stack Developer
-        </Typography> */}
-
         <Typography variant="h5" component="h3" color="text.secondary">
           {" "}
-          {/* h6 */}
           Building Software Solutions
         </Typography>
 
         {/* Buttons */}
-        <Box display={"flex"} gap="1rem" justifyContent="center">
+        <Box display="flex" gap="1rem" justifyContent="center">
           <Button
             component={Link}
             to="/projects"
@@ -54,10 +44,16 @@ function NameCard() {
             size="large"
             color="primary"
             sx={{
-              borderRadius: "50px",
-              padding: "12px 32px",
+              borderRadius: "2rem",
+              padding: "1rem 2rem",
               textTransform: "none",
               fontWeight: 600,
+              transition: "all 0.3s ease",
+              "&:hover": {
+                transform: "scale(1.05)",
+                borderColor: "secondary.main",
+                bgcolor: "rgba(255, 255, 255, 0.08)",
+              },
             }}
           >
             View My Work
@@ -69,12 +65,16 @@ function NameCard() {
             size="large"
             color="secondary"
             sx={{
-              borderRadius: "50px",
-              padding: "12px 32px",
+              borderRadius: "2rem",
+              padding: "1rem 2rem",
               textTransform: "none",
               fontWeight: 600,
-              borderWidth: 2,
-              "&:hover": { borderWidth: 2 },
+              transition: "all 0.3s ease",
+              "&:hover": {
+                transform: "scale(1.05)",
+                borderColor: "secondary.main",
+                bgcolor: "rgba(255, 255, 255, 0.08)",
+              },
             }}
           >
             Let's Connect
@@ -84,5 +84,3 @@ function NameCard() {
     </Box>
   );
 }
-
-export default NameCard;

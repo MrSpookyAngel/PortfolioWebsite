@@ -2,7 +2,7 @@ import { Stack } from "@mui/material";
 import NameCard from "./NameCard";
 import ImageCard from "./ImageCard";
 
-function Home() {
+export default function Home() {
   return (
     <Stack
       component="main"
@@ -12,13 +12,12 @@ function Home() {
         alignItems: "center",
         justifyContent: "center",
       }}
-      direction={{ lg: "column", xl: "row" }}
-      paddingTop={{ lg: "2rem", xl: "4rem" }}
+      direction={{ lg: "row", xl: "row" }}
+      paddingTop={{ xs: "2rem", xl: "4rem" }}
+      marginX={{ xs: "0.2rem" }}
     >
       <NameCard />
       <ImageCard />
     </Stack>
   );
 }
-
-export default Home;

@@ -1,12 +1,12 @@
 import { Box } from "@mui/material";
 
-function ImageCard() {
+export default function ImageCard() {
   return (
     <Box
       component="img"
       src="Me.png"
       alt="Luis Angel Villanueva"
-      mx={"auto"}
+      mx="auto"
       sx={{
         width: { xs: "79%", sm: "65%", md: "60%", lg: "55%", xl: "35%" },
         height: { xs: "70%", sm: "65%", md: "60%", lg: "55%", xl: "35%" },
@@ -26,5 +26,3 @@ function ImageCard() {
     />
   );
 }
-
-export default ImageCard;

@@ -2,7 +2,7 @@ import { SiPython, SiCplusplus, SiC, SiTypescript } from "react-icons/si";
 
 import SectionCards from "./SectionCards";
 
-function Languages() {
+export default function Languages() {
   const title = "Languages";
   const icons = [
     { Icon: SiPython, label: "Python" },
@@ -13,5 +13,3 @@ function Languages() {
 
   return SectionCards({ title, icons });
 }
-
-export default Languages;

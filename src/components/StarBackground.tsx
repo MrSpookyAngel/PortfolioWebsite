@@ -1,8 +1,14 @@
 import { useEffect, useRef } from "react";
-import { Box } from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 
-function StarBackground({ children }: { children: React.ReactElement[] }) {
+export default function StarBackground({
+  children,
+}: {
+  children: React.ReactElement[];
+}) {
+  const theme = useTheme();
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -18,12 +24,14 @@ function StarBackground({ children }: { children: React.ReactElement[] }) {
       velocity: number;
     }> = [];
 
-    const resizeCanvas = () => {
+    function resizeCanvas() {
+      if (!canvas) return;
+
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
       stars = [];
-      const starCount = window.innerWidth < 768 ? 100 : 200;
+      const starCount = isMobile ? 100 : 200;
       for (let i = 0; i < starCount; i++) {
         stars.push({
           x: Math.random() * canvas.width,
@@ -32,14 +40,16 @@ function StarBackground({ children }: { children: React.ReactElement[] }) {
           velocity: Math.random() * 0.5,
         });
       }
-    };
+    }
 
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
     let animationFrameId: number;
-    const animate = () => {
-      ctx.fillStyle = "#000000";
+    function animate() {
+      if (!ctx || !canvas) return;
+
+      ctx.fillStyle = "black";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       stars.forEach((star) => {
@@ -48,12 +58,12 @@ function StarBackground({ children }: { children: React.ReactElement[] }) {
 
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "#ffffff";
+        ctx.fillStyle = "white";
         ctx.fill();
       });
 
       animationFrameId = requestAnimationFrame(animate);
-    };
+    }
 
     animate();
 
@@ -78,5 +88,3 @@ function StarBackground({ children }: { children: React.ReactElement[] }) {
     </Box>
   );
 }
-
-export default StarBackground;

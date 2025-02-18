@@ -11,7 +11,7 @@ import {
 
 import SectionCards from "./SectionCards";
 
-function FrameworksLibraries() {
+export default function FrameworksLibraries() {
   const title = "Frameworks & Libraries";
   const icons = [
     { Icon: SiPytorch, label: "PyTorch" },
@@ -26,5 +26,3 @@ function FrameworksLibraries() {
 
   return SectionCards({ title, icons });
 }
-
-export default FrameworksLibraries;

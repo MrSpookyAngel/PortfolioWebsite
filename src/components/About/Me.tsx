@@ -1,14 +1,10 @@
 import { Box, Stack, Typography } from "@mui/material";
 
-function Me() {
+export default function Me() {
   return (
     <Box component="section" py="2rem">
-      <Stack spacing="1.5rem">
-        <Typography
-          variant="h3"
-          fontWeight="bold"
-          color="primary"
-        >
+      <Stack spacing="1rem">
+        <Typography variant="h3" fontWeight="bold" color="primary">
           Who I Am
         </Typography>
 
@@ -55,5 +51,3 @@ function Me() {
     </Box>
   );
 }
-
-export default Me;

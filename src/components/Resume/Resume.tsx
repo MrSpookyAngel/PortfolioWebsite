@@ -1,23 +1,57 @@
+import { useState, useEffect, useRef } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
-import { Container } from "@mui/material";
+import { Container, Stack, Typography, useTheme } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`;
+pdfjs.GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
-function Resume() {
+export default function Resume() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [containerWidth, setContainerWidth] = useState<number>(0);
+
+  useEffect(() => {
+    function updateWidth() {
+      if (containerRef.current) {
+        const calculatedWidth = Math.min(
+          containerRef.current.offsetWidth,
+          isMobile ? window.innerWidth : 1000
+        );
+        setContainerWidth(calculatedWidth * 0.95);
+      }
+    }
+
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, [isMobile]);
+
   return (
-    <Container
-      sx={{ display: "flex", justifyContent: "center", padding: "2rem" }}
-    >
-      <Document file="Resume.pdf" loading="Loading resume...">
-        <Page
-          pageNumber={1}
-          width={window.innerWidth * 0.4}
-          renderTextLayer={false}
-          renderAnnotationLayer={false}
-        />
-      </Document>
-    </Container>
+    <Stack spacing="1.5rem" padding="2rem" sx={{ alignItems: "center" }}>
+      <Typography variant="h3" fontWeight="bold" color="primary">
+        Resume
+      </Typography>
+      <Container
+        ref={containerRef}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          padding: "2rem",
+          width: "100%",
+          overflow: "clip",
+        }}
+      >
+        <Document file="Resume.pdf" loading="Loading resume...">
+          <Page
+            pageNumber={1}
+            width={containerWidth}
+            renderTextLayer={false}
+            renderAnnotationLayer={false}
+            scale={isMobile ? 1 : 1.2}
+          />
+        </Document>
+      </Container>
+    </Stack>
   );
 }
-
-export default Resume;
