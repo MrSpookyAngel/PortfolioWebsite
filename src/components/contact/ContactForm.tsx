@@ -1,49 +1,59 @@
 import { useState } from "react";
 import { Box, Button, TextField } from "@mui/material";
 
+const MAX_NAME_LENGTH = 250;
+const MAX_EMAIL_LENGTH = 100;
+const MAX_MESSAGE_LENGTH = 1024;
+
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setStatus("sending");
+    setErrorMessage("");
 
     try {
-      const response = await fetch("https://api.pushover.net/1/messages.json", {
+      const response = await fetch("http://localhost:3001/api/send-message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          token: "token",
-          user: "user",
-          title: "New Message",
-          message: `Name: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`,
-        }),
+        body: JSON.stringify(formData),
       });
 
       const data = await response.json();
 
       if (response.status === 200 && data.status === 1) {
-        alert("Message sent successfully!");
+        setStatus("success");
         setFormData({ name: "", email: "", message: "" });
       } else if (response.status >= 400 && response.status < 500) {
-        console.error("Client error:", data);
-        alert("Invalid input. Please check your details and try again.");
+        setErrorMessage(
+          "Invalid input. Please check your details and try again."
+        );
+        setStatus("error");
       } else if (response.status >= 500 || !response.ok) {
-        console.error("Server error:", data);
-        alert("Temporary server issue. Please try again after 5 seconds.");
+        setErrorMessage(
+          "Temporary server issue. Please try again after 5 seconds."
+        );
+        setStatus("error");
       } else {
-        throw new Error("Unexpected response.");
+        setErrorMessage("An unexpected error occurred. Please try again.");
+        setStatus("error");
       }
     } catch (error) {
-      console.error("Network error:", error);
-      alert(
-        "Failed to send message. Please check your network connection and try again later."
+      setErrorMessage(
+        "Failed to send message. Please try again after 5 seconds."
       );
+      setStatus("error");
     }
   }
 
@@ -52,6 +62,9 @@ export default function ContactForm() {
       ...formData,
       [e.target.name]: e.target.value,
     });
+    if (status !== "idle") {
+      setStatus("idle");
+    }
   }
 
   return (
@@ -65,6 +78,9 @@ export default function ContactForm() {
         margin="normal"
         required
         variant="outlined"
+        disabled={status === "sending"}
+        helperText={`${formData.name.length}/${MAX_NAME_LENGTH}`}
+        slotProps={{ htmlInput: { maxLength: MAX_NAME_LENGTH } }}
       />
       <TextField
         fullWidth
@@ -76,6 +92,9 @@ export default function ContactForm() {
         margin="normal"
         required
         variant="outlined"
+        disabled={status === "sending"}
+        helperText={`${formData.email.length}/${MAX_EMAIL_LENGTH}`}
+        slotProps={{ htmlInput: { maxLength: MAX_EMAIL_LENGTH } }}
       />
       <TextField
         fullWidth
@@ -88,11 +107,15 @@ export default function ContactForm() {
         multiline
         rows={6}
         variant="outlined"
+        disabled={status === "sending"}
+        helperText={`${formData.message.length}/${MAX_MESSAGE_LENGTH}`}
+        slotProps={{ htmlInput: { maxLength: MAX_MESSAGE_LENGTH } }}
       />
       <Button
         type="submit"
         variant="outlined"
         size="large"
+        disabled={status === "sending"}
         sx={{
           marginTop: "1rem",
           fontSize: "1.1rem",
@@ -104,8 +127,18 @@ export default function ContactForm() {
           },
         }}
       >
-        Send Message
+        {status === "sending" ? "Sending..." : "Send Message"}
       </Button>
+
+      {status === "success" && (
+        <Box sx={{ color: "success.main", mt: 2 }}>
+          Message sent successfully!
+        </Box>
+      )}
+
+      {status === "error" && (
+        <Box sx={{ color: "error.main", mt: 2 }}>{errorMessage}</Box>
+      )}
     </Box>
   );
 }
