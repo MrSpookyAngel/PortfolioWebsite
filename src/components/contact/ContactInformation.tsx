@@ -76,10 +76,22 @@ export default function ContactInformation() {
       </Typography>
 
       <Box sx={{ display: "flex", gap: "1rem", justifyContent: "center" }}>
-        <IconButton aria-label="LinkedIn" color="primary">
+        <IconButton
+          aria-label="LinkedIn"
+          href="https://www.linkedin.com/in/luis-a-villanueva/"
+          target="_blank"
+          rel="noopener noreferrer"
+          color="primary"
+        >
           <LinkedIn />
         </IconButton>
-        <IconButton aria-label="GitHub" color="primary">
+        <IconButton
+          aria-label="GitHub"
+          href="https://github.com/MrSpookyAngel"
+          target="_blank"
+          rel="noopener noreferrer"
+          color="primary"
+        >
           <GitHub />
         </IconButton>
       </Box>
