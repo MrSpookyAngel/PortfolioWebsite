@@ -25,7 +25,7 @@ export default function CrawlerSearchEngine() {
       technologies={technologies}
       title={title}
       description={description}
-      links={links}
+      // links={links}
     />
   );
 }

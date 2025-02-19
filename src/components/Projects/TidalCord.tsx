@@ -14,7 +14,7 @@ export default function TidalCord() {
     {
       key: "github",
       Icon: <GitHubIcon sx={{ width: "2rem", height: "2rem" }} />,
-      href: "http://github.com",
+      href: "https://github.com/MrSpookyAngel/TidalCord",
       ariaLabel: "Link to GitHub Repository",
     },
   ];

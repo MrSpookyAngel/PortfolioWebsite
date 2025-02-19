@@ -31,7 +31,7 @@ export default function SkillEstimation() {
       technologies={technologies}
       title={title}
       description={description}
-      links={links}
+      // links={links}
     />
   );
 }
