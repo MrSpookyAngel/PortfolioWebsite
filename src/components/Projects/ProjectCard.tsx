@@ -14,7 +14,7 @@ interface ProjectCardProps {
   technologies?: string[];
   title: string;
   description: string;
-  links: {
+  links?: {
     key: string;
     Icon: React.ReactNode;
     href: string;
@@ -29,7 +29,7 @@ export default function ProjectCard({
   links,
   technologies,
 }: ProjectCardProps) {
-  const actions = links.map(({ key, Icon, href, ariaLabel }) => {
+  const actions = links?.map(({ key, Icon, href, ariaLabel }) => {
     const isExternalLink =
       href.startsWith("https://") || href.startsWith("http://");
     return (
