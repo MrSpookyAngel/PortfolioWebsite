@@ -20,7 +20,12 @@ export default function ContactInformation() {
         justifyContent: "center",
       }}
     >
-      <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold" }}>
+      <Typography
+        variant="h6"
+        component="div"
+        gutterBottom
+        sx={{ fontWeight: "bold" }}
+      >
         Information
       </Typography>
 
@@ -61,7 +66,12 @@ export default function ContactInformation() {
 
       <Divider sx={{ my: "1.5rem" }} />
 
-      <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold" }}>
+      <Typography
+        variant="h6"
+        component="div"
+        gutterBottom
+        sx={{ fontWeight: "bold" }}
+      >
         Socials
       </Typography>
 

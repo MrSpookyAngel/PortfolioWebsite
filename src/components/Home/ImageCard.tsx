@@ -5,7 +5,7 @@ export default function ImageCard() {
     <Box
       component="img"
       src="Me.png"
-      alt="Luis Angel Villanueva"
+      alt="Luis Angel Villanueva Profile Picture"
       mx="auto"
       sx={{
         width: { xs: "79%", sm: "65%", md: "60%", lg: "55%", xl: "35%" },
