@@ -1,11 +1,13 @@
-import { Box, Divider, IconButton, Typography } from "@mui/material";
-import {
-  Email,
-  GitHub,
-  LinkedIn,
-  LocationOn,
-  Phone,
-} from "@mui/icons-material";
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+
+import EmailIcon from "@mui/icons-material/Email";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import PhoneIcon from "@mui/icons-material/Phone";
 
 export default function ContactInformation() {
   return (
@@ -38,7 +40,7 @@ export default function ContactInformation() {
             gap: "1rem",
           }}
         >
-          <LocationOn color="primary" />
+          <LocationOnIcon color="primary" />
           <Typography>
             Fullerton, California 92832,
             <br />
@@ -54,12 +56,12 @@ export default function ContactInformation() {
             gap: "1rem",
           }}
         >
-          <Phone color="primary" />
+          <PhoneIcon color="primary" />
           <Typography>+1 (714) 770-1336</Typography>
         </Box>
 
         <Box sx={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-          <Email color="primary" />
+          <EmailIcon color="primary" />
           <Typography>luis.angel.villanueva@outlook.com</Typography>
         </Box>
       </Box>
@@ -83,7 +85,7 @@ export default function ContactInformation() {
           rel="noopener noreferrer"
           color="primary"
         >
-          <LinkedIn />
+          <LinkedInIcon />
         </IconButton>
         <IconButton
           aria-label="GitHub"
@@ -92,7 +94,7 @@ export default function ContactInformation() {
           rel="noopener noreferrer"
           color="primary"
         >
-          <GitHub />
+          <GitHubIcon />
         </IconButton>
       </Box>
     </Box>

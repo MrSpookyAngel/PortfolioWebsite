@@ -1,4 +1,6 @@
-import { Grid2 as Grid, Stack, Typography } from "@mui/material";
+import Grid from "@mui/material/Grid2";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 
 import Portfolio from "./Portfolio";
 import LightSettlementDetection from "./LightSettlementDetection";

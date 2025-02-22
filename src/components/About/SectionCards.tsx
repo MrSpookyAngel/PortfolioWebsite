@@ -1,4 +1,8 @@
-import { Box, Grid2 as Grid, Typography, useTheme } from "@mui/material";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid2";
+import Typography from "@mui/material/Typography";
+import { useTheme } from "@mui/material/styles";
+
 import { IconType } from "react-icons";
 
 interface SectionCardsProps {

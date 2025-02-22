@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
-import { Box, useMediaQuery, useTheme } from "@mui/material";
+import Box from "@mui/material/Box";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 export default function StarBackground({
   children,

@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
-import { Container, Stack, Typography, useTheme } from "@mui/material";
+import Container from "@mui/material/Container";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;

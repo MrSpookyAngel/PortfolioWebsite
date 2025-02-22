@@ -1,22 +1,19 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import {
-  AppBar,
-  Box,
-  Container,
-  Toolbar,
-  Tabs,
-  Tab,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
+import Toolbar from "@mui/material/Toolbar";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import BuildIcon from "@mui/icons-material/Build";
@@ -24,6 +21,7 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
+import ListItemIcon from "@mui/material/ListItemIcon";
 import MenuIcon from "@mui/icons-material/Menu";
 
 import HideOnScroll from "./HideOnScroll";

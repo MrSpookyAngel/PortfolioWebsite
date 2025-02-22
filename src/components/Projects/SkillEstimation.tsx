@@ -1,4 +1,4 @@
-import GitHubIcon from "@mui/icons-material/GitHub";
+// import GitHubIcon from "@mui/icons-material/GitHub";
 
 import ProjectCard from "./ProjectCard";
 
@@ -16,14 +16,14 @@ export default function SkillEstimation() {
     "Developed and calibrated skill estimation models using Starcraft II match data to predict player win probabilities. " +
     "Implemented models based on Poisson distribution and explored alternative approaches which included Beta and Bernoulli distributions. " +
     "Conducted extensive evaluation using training and validation data to measure performance, achieving low mean squared errors for offline and online match predictions.";
-  const links = [
-    {
-      key: "github",
-      Icon: <GitHubIcon sx={{ width: "2rem", height: "2rem" }} />,
-      href: "http://github.com",
-      ariaLabel: "Link to GitHub Repository",
-    },
-  ];
+  // const links = [
+  //   {
+  //     key: "github",
+  //     Icon: <GitHubIcon sx={{ width: "2rem", height: "2rem" }} />,
+  //     href: "http://github.com",
+  //     ariaLabel: "Link to GitHub Repository",
+  //   },
+  // ];
 
   return (
     <ProjectCard

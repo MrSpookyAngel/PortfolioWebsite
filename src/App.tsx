@@ -4,15 +4,15 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+
 import About from "./components/About/About";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects/Projects";
 import Resume from "./components/Resume/Resume";
 import Contact from "./components/Contact/Contact";
-
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
 import StarBackground from "./components/StarBackground";
 import SpaceTheme from "./components/SpaceTheme";
 

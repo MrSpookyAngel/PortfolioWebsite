@@ -1,4 +1,5 @@
-import { Stack } from "@mui/material";
+import Stack from "@mui/material/Stack";
+
 import Me from "./Me";
 import Languages from "./Languages";
 import FrameworksLibraries from "./FrameworksLibraries";
