@@ -54,10 +54,10 @@ export default function Navbar() {
   return (
     <HideOnScroll>
       <AppBar
-        color="secondary"
         position="sticky"
         elevation={0}
         sx={{
+          backgroundColor: "background.paper",
           width: "95%",
           marginY: "1%",
           marginX: "auto",
@@ -77,11 +77,11 @@ export default function Navbar() {
             }}
           >
             {/* First icon / text */}
-            <Link aria-label="Home" to="/">
+            <Link aria-label="Home" to="/" style={{ display: "flex" }}>
               <img
                 src="v-universe.png"
                 alt="v-universe logo"
-                style={{ height: "3.5rem" }}
+                style={{ height: "3.5rem", borderRadius: "20%" }}
               />
             </Link>
 

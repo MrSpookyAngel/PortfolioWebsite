@@ -10,6 +10,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import About from "./components/About/About";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Projects from "./components/Projects/Projects";
 import Resume from "./components/Resume/Resume";
 import Contact from "./components/Contact/Contact";
@@ -31,6 +32,7 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
+          <Footer />
         </Router>
       </StarBackground>
     </ThemeProvider>
