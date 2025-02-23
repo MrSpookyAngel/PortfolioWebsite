@@ -7,7 +7,13 @@ import ContactInformation from "./ContactInformation";
 
 export default function Contact() {
   return (
-    <Stack spacing="2rem" padding="2rem" sx={{ alignItems: "center" }}>
+    <Stack
+      spacing="2rem"
+      padding="2rem"
+      minHeight="100vh"
+      marginBottom="6rem"
+      sx={{ alignItems: "center" }}
+    >
       <Typography variant="h3" fontWeight="bold" color="primary">
         Contact
       </Typography>

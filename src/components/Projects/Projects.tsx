@@ -18,11 +18,21 @@ export default function Projects() {
   ];
 
   return (
-    <Stack spacing="2rem" padding="2rem" sx={{ alignItems: "center" }}>
+    <Stack
+      spacing="2rem"
+      padding="2rem"
+      minHeight="100vh"
+      marginBottom="6rem"
+      sx={{ alignItems: "center" }}
+    >
       <Typography variant="h3" fontWeight="bold" color="primary">
         Projects
       </Typography>
-      <Grid container spacing={{ xs: "2rem", md: "4rem" }} justifyContent="center">
+      <Grid
+        container
+        spacing={{ xs: "2rem", md: "4rem" }}
+        justifyContent="center"
+      >
         {projects.map((Project, index) => (
           <Grid key={index}>
             <Project />

@@ -12,6 +12,8 @@ export default function About() {
       aria-label="About section"
       id="about"
       spacing="2rem"
+      minHeight="100vh"
+      marginBottom="6rem"
       sx={{
         alignItems: "center",
         textAlign: "center",

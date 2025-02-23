@@ -31,7 +31,13 @@ export default function Resume() {
   }, [isMobile]);
 
   return (
-    <Stack spacing="1.5rem" padding="2rem" sx={{ alignItems: "center" }}>
+    <Stack
+      spacing="1.5rem"
+      padding="2rem"
+      minHeight="100vh"
+      marginBottom="6rem"
+      sx={{ alignItems: "center" }}
+    >
       <Typography variant="h3" fontWeight="bold" color="primary">
         Resume
       </Typography>

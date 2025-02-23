@@ -8,8 +8,8 @@ export default function ImageCard() {
       alt="Luis Angel Villanueva Profile Picture"
       mx="auto"
       sx={{
-        width: { xs: "79%", sm: "65%", md: "60%", lg: "55%", xl: "35%" },
-        height: { xs: "70%", sm: "65%", md: "60%", lg: "55%", xl: "35%" },
+        width: { xs: "75%", sm: "70%", md: "65%", lg: "60%", xl: "35%" },
+        height: { xs: "75%", sm: "70%", md: "65%", lg: "60%", xl: "35%" },
         objectFit: "fill",
         objectPosition: "center",
         borderRadius: "50%",
