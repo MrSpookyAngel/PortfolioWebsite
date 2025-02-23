@@ -7,6 +7,11 @@ const MAX_NAME_LENGTH = 250;
 const MAX_EMAIL_LENGTH = 100;
 const MAX_MESSAGE_LENGTH = 1024;
 
+const API_URL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3001/api/send-message"
+    : "https://www.villanuevauniverse.com/api/send-message";
+
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -24,10 +29,12 @@ export default function ContactForm() {
     setErrorMessage("");
 
     try {
-      const response = await fetch("http://localhost:3001/api/send-message", {
+      const response = await fetch(API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
+          SameSite: "Strict",
         },
         body: JSON.stringify(formData),
       });

@@ -18,15 +18,29 @@ const limiter = rateLimit({
 const logger = winston.createLogger({
   level: "info",
   format: winston.format.json(),
-  transports: [new winston.transports.File({ filename: "backend/logs/messages.log" })],
+  transports: [
+    new winston.transports.File({ filename: "backend/logs/messages.log" }),
+  ],
 });
 
-app.use(cors());
+const corsOptions = {
+  origin: [
+    "https://www.villanuevauniverse.com",
+    "https://villanuevauniverse.com",
+  ],
+  methods: ["POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "X-Requested-With"],
+  credentials: false,
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
+app.set("trust proxy", 1);
 
 const PUSHOVER_API_URL = "https://api.pushover.net/1/messages.json";
-const PUSHOVER_API_TOKEN = process.env.PUSHOVER_API_TOKEN;
-const PUSHOVER_USER = process.env.PUSHOVER_USER;
+const PUSHOVER_APP_API_TOKEN = process.env.PUSHOVER_APP_API_TOKEN;
+const PUSHOVER_USER_KEY = process.env.PUSHOVER_USER_KEY;
 
 app.post("/api/send-message", limiter, async (req: Request, res: Response) => {
   const { name, email, message } = req.body;
@@ -54,8 +68,8 @@ app.post("/api/send-message", limiter, async (req: Request, res: Response) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        token: PUSHOVER_API_TOKEN,
-        user: PUSHOVER_USER,
+        token: PUSHOVER_APP_API_TOKEN,
+        user: PUSHOVER_USER_KEY,
         title: name,
         message: message,
         url: `mailto:${email}`,
