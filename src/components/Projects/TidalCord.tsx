@@ -1,4 +1,4 @@
-import GitHubIcon from "@mui/icons-material/GitHub";
+import { SiGit } from "react-icons/si";
 
 import ProjectCard from "./ProjectCard";
 
@@ -12,10 +12,10 @@ export default function TidalCord() {
   const image = "TidalCord.png";
   const links = [
     {
-      key: "github",
-      Icon: <GitHubIcon sx={{ width: "2rem", height: "2rem" }} />,
-      href: "https://github.com/MrSpookyAngel/TidalCord",
-      ariaLabel: "Link to GitHub Repository",
+      key: "git-repo",
+      Icon: <SiGit size="2rem" />,
+      href: "https://git.villanuevauniverse.com/VillanuevaUniverse/TidalCord",
+      ariaLabel: "Link to Git Repository",
     },
   ];
 

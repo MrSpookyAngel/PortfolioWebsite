@@ -1,4 +1,4 @@
-// import GitHubIcon from "@mui/icons-material/GitHub";
+import { SiGit } from "react-icons/si";
 
 import ProjectCard from "./ProjectCard";
 
@@ -10,14 +10,14 @@ export default function CrawlerSearchEngine() {
     "Developed a web crawler that scraped my school's domain. " +
     "Used the collected data to build a TF-IDF search engine using Flask. " +
     "It handled tens of thousands of documents (or Web pages) with a query response time under 150ms. ";
-  // const links = [
-  //   {
-  //     key: "github",
-  //     Icon: <GitHubIcon sx={{ width: "2rem", height: "2rem" }} />,
-  //     href: "http://github.com",
-  //     ariaLabel: "Link to GitHub Repository",
-  //   },
-  // ];
+  const links = [
+    {
+      key: "git-repo",
+      Icon: <SiGit size="2rem" />,
+      href: "https://git.villanuevauniverse.com/VillanuevaUniverse/CrawlerSearchEngine",
+      ariaLabel: "Link to Git Repository",
+    },
+  ];
 
   return (
     <ProjectCard
@@ -25,7 +25,7 @@ export default function CrawlerSearchEngine() {
       technologies={technologies}
       title={title}
       description={description}
-      // links={links}
+      links={links}
     />
   );
 }
