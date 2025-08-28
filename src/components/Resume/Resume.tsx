@@ -3,6 +3,7 @@ import { Document, Page, pdfjs } from "react-pdf";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
@@ -61,6 +62,11 @@ export default function Resume() {
           />
         </Document>
       </Container>
+      <Link href="/Resume.pdf" download>
+        <Typography variant="body1" color="primary">
+          Download Resume
+        </Typography>
+      </Link>
     </Stack>
   );
 }
